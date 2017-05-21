@@ -38,25 +38,8 @@ class TrelloWidgetProvider : AppWidgetProvider() {
     private fun updateAppWidget(context: Context, appWidgetManager: AppWidgetManager, appWidgetId: Int) {
         // TODO: We should update both the BoardList and Board on a refresh
         val views = RemoteViews(context.packageName, R.layout.trello_widget)
-        updateTitleBar(appWidgetId, context, views)
         updateCardList(appWidgetId, context, views)
         appWidgetManager.updateAppWidget(appWidgetId, views)
-    }
-
-    private fun updateTitleBar(appWidgetId: Int, context: Context, views: RemoteViews) {
-        val board = context.getBoard(appWidgetId)
-        val list = context.getList(appWidgetId)
-        @ColorInt val foregroundColor = context.getTitleForegroundColor()
-
-        setBackgroundColor(views, R.id.title_bar, context.getTitleBackgroundColor())
-        setTextView(views, R.id.list_title, list.name, foregroundColor)
-        setImageViewColor(views, R.id.refreshButt, foregroundColor.lightDim())
-        setImageViewColor(views, R.id.configButt, foregroundColor.lightDim())
-        setImageViewColor(views, R.id.divider, foregroundColor)
-
-        views.setOnClickPendingIntent(R.id.list_title, getTitleIntent(context, board))
-        views.setOnClickPendingIntent(R.id.refreshButt, getRefreshPendingIntent(context, appWidgetId))
-        views.setOnClickPendingIntent(R.id.configButt, getReconfigPendingIntent(context, appWidgetId))
     }
 
     private fun updateCardList(appWidgetId: Int, context: Context, views: RemoteViews) {

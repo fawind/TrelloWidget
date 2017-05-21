@@ -16,42 +16,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/title_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#54ffffff">
-
-            <TextView
-                android:id="@+id/list_title"
-                style="@style/WidgetTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="@string/list_hint"
-                android:maxLines="1" />
-
-            <ImageButton
-                android:id="@+id/refreshButt"
-                style="@style/WidgetTitleButton"
-                android:contentDescription="@string/refresh"
-                android:src="@drawable/ic_refresh_white_24dp" />
-
-            <ImageButton
-                android:id="@+id/configButt"
-                style="@style/WidgetTitleButton"
-                android:contentDescription="@string/config"
-                android:src="@drawable/ic_settings_white_24dp" />
-
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:src="@drawable/divider"
-            tools:ignore="ContentDescription" />
-
         <FrameLayout
             android:id="@+id/card_frame"
             android:layout_width="match_parent"
@@ -68,7 +32,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/no_cards"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </FrameLayout>
     </LinearLayout>
